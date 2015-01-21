@@ -3,24 +3,29 @@
 ##	GLUON_SITE_PACKAGES
 #		specify gluon/openwrt packages to include here
 GLUON_SITE_PACKAGES := \
+  gluon-mesh-batman-adv-14 \
   gluon-alfred \
   gluon-announced \
   gluon-ath9k-workaround \
   gluon-autoupdater \
-  gluon-config-mode \
   gluon-ebtables-filter-multicast \
   gluon-ebtables-filter-ra-dhcp \
   gluon-luci-admin \
   gluon-luci-autoupdater \
   gluon-luci-portconfig \
+  gluon-luci-private-wifi \
   gluon-next-node \
-  gluon-mesh-batman-adv \
   gluon-mesh-vpn-fastd \
   gluon-radvd \
   gluon-status-page \
   iwinfo \
   iptables \
-  haveged
+  haveged \
+  gluon-config-mode-autoupdater \
+  gluon-config-mode-hostname \
+  gluon-config-mode-mesh-vpn \
+  gluon-config-mode-geo-location \
+  gluon-config-mode-contact-info
 
 
 ##	DEFAULT_GLUON_RELEASE
