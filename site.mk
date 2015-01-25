@@ -6,7 +6,6 @@ GLUON_SITE_PACKAGES := \
   gluon-mesh-batman-adv-14 \
   gluon-alfred \
   gluon-announced \
-  gluon-ath9k-workaround \
   gluon-autoupdater \
   gluon-ebtables-filter-multicast \
   gluon-ebtables-filter-ra-dhcp \
