@@ -8,9 +8,9 @@
 ## properly configured in this script.
 
 # if version is unset, will use the default experimental version from site.mk
-VERSION=0.3
+#VERSION=0.3.1
 # branch must be set to either experimental, beta or stable
-BRANCH=stable
+BRANCH=experimental
 
 cd ..
 if [ ! -d "site" ]; then
