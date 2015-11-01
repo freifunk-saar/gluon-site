@@ -8,9 +8,11 @@
 ## properly configured in this script.
 
 # if version is unset, will use the default experimental version from site.mk
-VERSION=1.1
+#VERSION=1.2
 # branch must be set to either experimental, beta or stable
-BRANCH=stable
+BRANCH=experimental
+# must point to valid ecdsa signing key created by ecdsakeygen, relative to Gluon base directory
+SIGNING_KEY=/ecdsa-key-secret
 
 cd ..
 if [ ! -d "site" ]; then
@@ -19,7 +21,7 @@ if [ ! -d "site" ]; then
 fi
 
 rm build.log
-rm -r images
+rm -r output
 for TARGET in  ar71xx-generic ar71xx-nand mpc85xx-generic x86-generic x86-kvm_guest
 do
 	if [ -z "$VERSION" ]
@@ -65,19 +67,19 @@ fi
 
 echo "Manifest creation complete, signing manifest"
 
-echo -e "contrib/sign.sh ../ecdsa-key-secret images/sysupgrade/experimental.manifest" >> build.log
-contrib/sign.sh ../ecdsa-key-secret images/sysupgrade/experimental.manifest >> build.log 2>&1
+echo -e "contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/experimental.manifest" >> build.log
+contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/experimental.manifest >> build.log 2>&1
 
 if [[ "$BRANCH" == "beta" ]] || [[ "$BRANCH" == "stable" ]]
 then
-	echo -e "contrib/sign.sh ../ecdsa-key-secret images/sysupgrade/beta.manifest" >> build.log
-	contrib/sign.sh ../ecdsa-key-secret images/sysupgrade/beta.manifest >> build.log 2>&1
+	echo -e "contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/beta.manifest" >> build.log
+	contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/beta.manifest >> build.log 2>&1
 fi
 
 if [[ "$BRANCH" == "stable" ]]
 then
-	echo -e "contrib/sign.sh ../ecdsa-key-secret images/sysupgrade/stable.manifest" >> build.log
-	contrib/sign.sh ../ecdsa-key-secret images/sysupgrade/stable.manifest >> build.log 2>&1
+	echo -e "contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/stable.manifest" >> build.log
+	contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/stable.manifest >> build.log 2>&1
 fi
 
 echo "Done :)"
