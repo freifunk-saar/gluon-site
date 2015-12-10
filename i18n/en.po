@@ -17,9 +17,9 @@ msgstr ""
 
 msgid "gluon-config-mode:pubkey"
 msgstr ""
-"Thank you for setting up your Freifunk Saar node. This is your public"
-"key. In earlier versions, you had to register it with us, but this"
-"requirement was dropped. This display will be removed in future firmware"
+"Thank you for setting up your Freifunk Saar node. This is your public "
+"key. In earlier versions, you had to register it with us, but this "
+"requirement was dropped. This display will be removed in future firmware "
 "versions. Until then, you can ignore it."
 
 msgid "gluon-config-mode:reboot"
