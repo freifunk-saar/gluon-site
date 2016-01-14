@@ -83,5 +83,5 @@ then
 	echo -e "contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/stable.manifest" >> build.log
 	contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/stable.manifest >> build.log 2>&1
 fi
-
+cd site
 echo "Done :)"
