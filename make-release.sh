@@ -12,7 +12,7 @@
 # branch must be set to either experimental, beta or stable
 BRANCH=experimental
 # must point to valid ecdsa signing key created by ecdsakeygen, relative to Gluon base directory
-SIGNING_KEY=/ecdsa-key-secret
+SIGNING_KEY=../../ecdsa-key-secret
 
 cd ..
 if [ ! -d "site" ]; then
