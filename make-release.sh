@@ -3,16 +3,18 @@
 ## This script will compile Gluon for all architectures, create the
 ## manifest and sign it. For that, you must have clone gluon and have a
 ## valid site config. Additionally, the signing key must be present in
-## ../../ecdsa-key-secret.
+## ../../ecdsa-key-secret or defined as first argument.
+## The second argument defines the branch (stable, beta, experimental).
+## The third argument defines the version.
 ## Call from site directory with the version and branch variables
 ## properly configured in this script.
 
 # if version is unset, will use the default experimental version from site.mk
-#VERSION=1.2
+VERSION=${3:-"1.2~exp$(date '+%Y%m%d')"}
 # branch must be set to either experimental, beta or stable
-BRANCH=experimental
+BRANCH=${2:-"experimental"}
 # must point to valid ecdsa signing key created by ecdsakeygen, relative to Gluon base directory
-SIGNING_KEY=../../ecdsa-key-secret
+SIGNING_KEY=${1:-"../../ecdsa-key-secret"}
 
 cd ..
 if [ ! -d "site" ]; then
