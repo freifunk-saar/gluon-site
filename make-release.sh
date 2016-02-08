@@ -24,7 +24,7 @@ fi
 
 rm build.log
 rm -r output
-for TARGET in  ar71xx-generic ar71xx-nand mpc85xx-generic x86-generic x86-kvm_guest
+for TARGET in  ar71xx-generic ar71xx-nand mpc85xx-generic x86-generic x86-kvm_guest x86-xen_domu x86-64
 do
 	if [ -z "$VERSION" ]
 	then
