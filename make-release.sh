@@ -3,14 +3,18 @@
 ## This script will compile Gluon for all architectures, create the
 ## manifest and sign it. For that, you must have clone gluon and have a
 ## valid site config. Additionally, the signing key must be present in
-## ../../ecdsa-key-secret.
+## ../../ecdsa-key-secret or defined as first argument.
+## The second argument defines the branch (stable, beta, experimental).
+## The third argument defines the version.
 ## Call from site directory with the version and branch variables
 ## properly configured in this script.
 
 # if version is unset, will use the default experimental version from site.mk
-VERSION=1.1.2
+VERSION=${3:-"1.2~exp$(date '+%Y%m%d')"}
 # branch must be set to either experimental, beta or stable
-BRANCH=stable
+BRANCH=${2:-"experimental"}
+# must point to valid ecdsa signing key created by ecdsakeygen, relative to Gluon base directory
+SIGNING_KEY=${1:-"../../ecdsa-key-secret"}
 
 cd ..
 if [ ! -d "site" ]; then
@@ -19,7 +23,7 @@ if [ ! -d "site" ]; then
 fi
 
 rm build.log
-rm -r images
+rm -r output
 for TARGET in  ar71xx-generic ar71xx-nand mpc85xx-generic x86-generic x86-kvm_guest
 do
 	if [ -z "$VERSION" ]
@@ -65,19 +69,19 @@ fi
 
 echo "Manifest creation complete, signing manifest"
 
-echo -e "contrib/sign.sh ../ecdsa-key-secret images/sysupgrade/experimental.manifest" >> build.log
-contrib/sign.sh ../ecdsa-key-secret images/sysupgrade/experimental.manifest >> build.log 2>&1
+echo -e "contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/experimental.manifest" >> build.log
+contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/experimental.manifest >> build.log 2>&1
 
 if [[ "$BRANCH" == "beta" ]] || [[ "$BRANCH" == "stable" ]]
 then
-	echo -e "contrib/sign.sh ../ecdsa-key-secret images/sysupgrade/beta.manifest" >> build.log
-	contrib/sign.sh ../ecdsa-key-secret images/sysupgrade/beta.manifest >> build.log 2>&1
+	echo -e "contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/beta.manifest" >> build.log
+	contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/beta.manifest >> build.log 2>&1
 fi
 
 if [[ "$BRANCH" == "stable" ]]
 then
-	echo -e "contrib/sign.sh ../ecdsa-key-secret images/sysupgrade/stable.manifest" >> build.log
-	contrib/sign.sh ../ecdsa-key-secret images/sysupgrade/stable.manifest >> build.log 2>&1
+	echo -e "contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/stable.manifest" >> build.log
+	contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/stable.manifest >> build.log 2>&1
 fi
-
+cd site
 echo "Done :)"
