@@ -10,7 +10,7 @@
 ## properly configured in this script.
 
 # if version is unset, will use the default experimental version from site.mk
-VERSION=${3:-"1.2~exp$(date '+%Y%m%d')"}
+VERSION=${3:-"1.2.1~exp$(date '+%Y%m%d')"}
 # branch must be set to either experimental, beta or stable
 BRANCH=${2:-"experimental"}
 # must point to valid ecdsa signing key created by ecdsakeygen, relative to Gluon base directory
@@ -26,26 +26,14 @@ rm build.log
 rm -r output
 for TARGET in  ar71xx-generic ar71xx-nand mpc85xx-generic x86-generic x86-kvm_guest x86-xen_domu x86-64
 do
-	if [ -z "$VERSION" ]
-	then
-		echo "Starting work on target $TARGET" | tee -a build.log
-		echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable update" >> build.log
-		make GLUON_TARGET=$TARGET GLUON_BRANCH=stable update >> build.log 2>&1
-		echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable clean" >> build.log
-		make GLUON_TARGET=$TARGET GLUON_BRANCH=stable clean >> build.log 2>&1
-		echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable -j9" >> build.log
-		make GLUON_TARGET=$TARGET GLUON_BRANCH=stable -j9 >> build.log 2>&1
-		echo -e "\n\n\n============================================================\n\n" >> build.log
-	else
-		echo "Starting work on target $TARGET" | tee -a build.log
-		echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION update" >> build.log
-		make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION update >> build.log 2>&1
-		echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION clean" >> build.log
-		make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION clean >> build.log 2>&1
-		echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j9" >> build.log
-		make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j9 >> build.log 2>&1
-		echo -e "\n\n\n============================================================\n\n" >> build.log
-	fi
+	echo "Starting work on target $TARGET" | tee -a build.log
+	echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION update" >> build.log
+	make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION update >> build.log 2>&1
+	echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION clean" >> build.log
+	make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION clean >> build.log 2>&1
+	echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j9" >> build.log
+	make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j9 >> build.log 2>&1
+	echo -e "\n\n\n============================================================\n\n" >> build.log
 done
 echo "Compilation complete, creating manifest(s)" | tee -a build.log
 
