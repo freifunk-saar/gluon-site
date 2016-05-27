@@ -10,7 +10,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-autoupdater \
 	gluon-config-mode-autoupdater \
 	gluon-config-mode-hostname \
-	gluon-config-mode-mesh-vpn \
+	gluon-config-mode-tunneldigger \
 	gluon-config-mode-geo-location \
 	gluon-config-mode-contact-info \
 	gluon-config-mode-core \
@@ -21,15 +21,17 @@ GLUON_SITE_PACKAGES := \
 	gluon-luci-portconfig \
 	gluon-luci-wifi-config \
 	gluon-luci-private-wifi \
-	gluon-luci-mesh-vpn-fastd \
 	gluon-next-node \
 	gluon-mesh-vpn-fastd \
+	gluon-mesh-vpn-tunneldigger \
+	gluon-tunneldigger-watchdog \
 	gluon-radvd \
         gluon-setup-mode \
 	gluon-status-page \
 	iwinfo \
 	iptables \
 	haveged
+#	gluon-config-mode-mesh-vpn \
 
 ##	DEFAULT_GLUON_RELEASE
 #		version string to use for images
