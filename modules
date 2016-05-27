@@ -1,0 +1,21 @@
+##	GLUON_SITE_FEEDS
+#		for each feed name given, add the corresponding PACKAGES_* lines
+#		documented below
+GLUON_SITE_FEEDS='FFRL ffsaar'
+
+##	PACKAGES_$feedname_REPO
+#		the  git repository from where to clone the package feed
+PACKAGES_FFRL_REPO='https://github.com/ffrl/ffrl-packages.git'
+
+
+##	PACKAGES_$feedname_COMMIT
+#		the version/commit of the git repository to clone
+PACKAGES_FFRL_COMMIT=510012dbfa31f28d8cce223b058c1b32e2bf2201
+
+##  PACKAGES_$feedname_BRANCH
+#   the branch to check out
+PACKAGES_FFRL_BRANCH=Branch_v2016.1.x
+
+PACKAGES_ffsaar_REPO=git@github.com:freifunk-saar/gluon-ffsaar.git
+PACKAGES_ffsaar_COMMIT=bcccff920c29d885ea43765824dc76ec59929612
+PACKAGES_ffsaar_BRANCH=master
