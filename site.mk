@@ -14,6 +14,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-config-mode-geo-location \
 	gluon-config-mode-contact-info \
 	gluon-config-mode-core \
+	gluon-migrate-vpn \
 	gluon-ebtables-filter-multicast \
 	gluon-ebtables-filter-ra-dhcp \
 	gluon-luci-admin \
@@ -22,7 +23,6 @@ GLUON_SITE_PACKAGES := \
 	gluon-luci-wifi-config \
 	gluon-luci-private-wifi \
 	gluon-next-node \
-	gluon-mesh-vpn-fastd \
 	gluon-mesh-vpn-tunneldigger \
 	gluon-tunneldigger-watchdog \
 	gluon-radvd \
@@ -31,7 +31,6 @@ GLUON_SITE_PACKAGES := \
 	iwinfo \
 	iptables \
 	haveged
-#	gluon-config-mode-mesh-vpn \
 
 ##	DEFAULT_GLUON_RELEASE
 #		version string to use for images
