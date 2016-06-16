@@ -25,8 +25,9 @@ GLUON_SITE_PACKAGES := \
 	gluon-next-node \
 	gluon-mesh-vpn-tunneldigger \
 	gluon-tunneldigger-watchdog \
+	gluon-filter-ra \
 	gluon-radvd \
-        gluon-setup-mode \
+	gluon-setup-mode \
 	gluon-status-page \
 	iwinfo \
 	iptables \
