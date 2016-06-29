@@ -15,6 +15,8 @@ VERSION=${3:-"1.2.1~exp$(date '+%Y%m%d')"}
 BRANCH=${2:-"experimental"}
 # must point to valid ecdsa signing key created by ecdsakeygen, relative to Gluon base directory
 SIGNING_KEY=${1:-"../../ecdsa-key-secret"}
+# Gluon doesn't like being built as root unless this is set:
+export FORCE_UNSAFE_CONFIGURE=1
 
 cd ..
 if [ ! -d "site" ]; then
@@ -30,7 +32,7 @@ do
 	echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION update" >> build.log
 	make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION update >> build.log 2>&1
 	echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION clean" >> build.log
-	make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION clean >> build.log 2>&1
+	make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j9 clean >> build.log 2>&1
 	echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j9" >> build.log
 	make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j9 >> build.log 2>&1
 	echo -e "\n\n\n============================================================\n\n" >> build.log
