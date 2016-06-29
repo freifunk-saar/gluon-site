@@ -1,0 +1,5 @@
+trigger:
+  type: deploy
+  script:
+    - "source ci-env.sh"
+    - "curl -X POST -F "token=$CI_SECRET" -F "ref=master" -F "variables[GLUON_UPSTREAM_TAG]=$GLUON_UPSTREAM_TAG" -F "variables[SITE_REF]=$CI_BUILD_REF" -F "variables[RELEASE_BRANCH]=$CI_BUILD_REF_NAME" -F "variables[RELEASE_VERSION]=$RELEASE_VERSION" https://git.hacksaar.de/api/v3/projects/30/trigger/builds"
