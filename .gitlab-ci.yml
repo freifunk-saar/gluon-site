@@ -1,3 +1,5 @@
+image: tobitheo/gluon-build-docker:0.5
+
 trigger:
   type: deploy
   script:
