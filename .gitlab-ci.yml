@@ -9,3 +9,5 @@ trigger:
     - experimental
     - beta
     - stable
+  except:
+    - tags
