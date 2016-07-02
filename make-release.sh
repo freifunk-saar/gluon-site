@@ -24,8 +24,8 @@ if [ ! -d "site" ]; then
 	return
 fi
 
-rm build.log
-rm -r output
+rm -f build.log
+rm -rf output
 for TARGET in  ar71xx-generic ar71xx-nand mpc85xx-generic x86-generic x86-kvm_guest x86-xen_domu x86-64
 do
 	echo "Starting work on target $TARGET" | tee -a build.log
