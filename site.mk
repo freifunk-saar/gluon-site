@@ -52,7 +52,7 @@ DEFAULT_GLUON_RELEASE := 1.3~exp$(shell date '+%Y%m%d')
 GLUON_RELEASE ?= $(DEFAULT_GLUON_RELEASE)
 
 # Default priority for updates.
-GLUON_PRIORITY ?= 0
+GLUON_PRIORITY ?= 2
 
 # Languages to include
 GLUON_LANGS ?= en de fr
