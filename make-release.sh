@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 ## This script will compile Gluon for all architectures, create the
 ## manifest and sign it. For that, you must have clone gluon and have a
