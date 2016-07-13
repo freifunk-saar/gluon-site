@@ -3,9 +3,8 @@
 GLUON_SITE_FEEDS='ffrl ffsaar'
 
 PACKAGES_FFRL_REPO='https://github.com/ffrl/ffrl-packages.git'
-PACKAGES_FFRL_COMMIT=209d679aca3efbf66e58a11121a6287fc756cb3f
-#PACKAGES_FFRL_BRANCH=Branch_v2016.1.x TODO this should be reset once it's usable again...
-PACKAGES_FFRL_BRANCH=v2016.1.4-3
+PACKAGES_FFRL_COMMIT=c6a6fd5ff2954495d8b6feae4094805d206917fc
+PACKAGES_FFRL_BRANCH=Branch_v2016.1.x
 
 PACKAGES_FFSAAR_REPO='https://github.com/freifunk-saar/gluon-ffsaar.git'
 PACKAGES_FFSAAR_COMMIT=bd71616c2981e3802e2afb02c99aca6587a1df35
