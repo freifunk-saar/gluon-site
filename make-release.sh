@@ -11,7 +11,7 @@ set -e
 ## properly configured in this script.
 
 # if version is unset, will use the default experimental version from site.mk
-VERSION=${3:-"1.2.1~exp$(date '+%Y%m%d')"}
+VERSION=${3:-"0~exp$(date '+%Y%m%d')"}
 # branch must be set to either experimental, beta or stable
 BRANCH=${2:-"experimental"}
 # must point to valid ecdsa signing key created by ecdsakeygen, relative to Gluon base directory
