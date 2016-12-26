@@ -56,3 +56,6 @@ GLUON_PRIORITY ?= 1
 
 # Languages to include
 GLUON_LANGS ?= en de fr
+
+# TP-LINK regional firmware
+GLUON_REGION ?= eu
