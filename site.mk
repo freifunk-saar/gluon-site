@@ -58,3 +58,6 @@ GLUON_LANGS ?= en de fr
 
 # TP-LINK regional firmware
 GLUON_REGION ?= eu
+
+# ath10k choice
+GLUON_ATH10K_MESH ?= 11s
