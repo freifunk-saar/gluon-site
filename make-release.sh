@@ -15,9 +15,9 @@ VERSION=${3:-"exp$(date '+%Y%m%d')"}
 # branch must be set to either experimental, beta or stable
 BRANCH=${2:-"experimental"}
 # must point to valid ecdsa signing key created by ecdsakeygen, relative to Gluon base directory
-SIGNING_KEY=${1:-"../../ecdsa-key-secret"}
+SIGNING_KEY=${1:-"../ecdsa-key-secret"}
 # Gluon doesn't like being built as root unless this is set:
-export FORCE_UNSAFE_CONFIGURE=1
+#export FORCE_UNSAFE_CONFIGURE=1
 
 cd ..
 if [ ! -d "site" ]; then
