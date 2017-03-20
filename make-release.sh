@@ -25,54 +25,53 @@ if [ ! -d "site" ]; then
 	return
 fi
 
-rm -f build.log
 rm -rf output
 for TARGET in  ar71xx-generic ar71xx-nand brcm2708-bcm2708 brcm2708-bcm2709 mpc85xx-generic x86-generic x86-kvm_guest x86-64 x86-xen_domu
 do
-	echo "Starting work on target $TARGET" | tee -a build.log
-	echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION update" | tee -a build.log
-	make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION update 2>&1 | tee -a build.log
-	echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION clean" | tee -a build.log
-	make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j9 clean 2>&1 | tee -a build.log
-	echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j9" | tee -a build.log
-	make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j9 V=s 2>&1 | tee -a build.log
-	echo -e "\n\n\n============================================================\n\n" | tee -a build.log
+	echo "Starting work on target $TARGET"
+	echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION update"
+	make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION update
+	echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION clean"
+	make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j9 clean
+	echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j9"
+	make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j9 V=s
+	echo -e "\n\n\n============================================================\n\n"
 done
-echo "Compilation complete, creating manifest(s)" | tee -a build.log
+echo "Compilation complete, creating manifest(s)"
 
-echo -e "make GLUON_BRANCH=experimental manifest" | tee -a build.log
-make GLUON_BRANCH=experimental manifest 2>&1 | tee -a build.log
-echo -e "\n\n\n============================================================\n\n" | tee -a build.log
+echo -e "make GLUON_BRANCH=experimental manifest"
+make GLUON_BRANCH=experimental manifest
+echo -e "\n\n\n============================================================\n\n"
 
 if [[ "$BRANCH" == "beta" ]] || [[ "$BRANCH" == "stable" ]]
 then
-	echo -e "make GLUON_BRANCH=beta manifest" | tee -a build.log
-	make GLUON_BRANCH=beta manifest 2>&1 | tee -a build.log
-	echo -e "\n\n\n============================================================\n\n" | tee -a build.log
+	echo -e "make GLUON_BRANCH=beta manifest"
+	make GLUON_BRANCH=beta manifest
+	echo -e "\n\n\n============================================================\n\n"
 fi
 
 if [[ "$BRANCH" == "stable" ]]
 then
-	echo -e "make GLUON_BRANCH=stable manifest" | tee -a build.log
-	make GLUON_BRANCH=stable manifest 2>&1 | tee -a build.log
-	echo -e "\n\n\n============================================================\n\n" | tee -a build.log
+	echo -e "make GLUON_BRANCH=stable manifest"
+	make GLUON_BRANCH=stable manifest
+	echo -e "\n\n\n============================================================\n\n"
 fi
 
 echo "Manifest creation complete, signing manifest"
 
-echo -e "contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/experimental.manifest" | tee -a build.log
-contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/experimental.manifest 2>&1 | tee -a build.log
+echo -e "contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/experimental.manifest"
+contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/experimental.manifest
 
 if [[ "$BRANCH" == "beta" ]] || [[ "$BRANCH" == "stable" ]]
 then
-	echo -e "contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/beta.manifest" | tee -a build.log
-	contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/beta.manifest 2>&1 | tee -a build.log
+	echo -e "contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/beta.manifest"
+	contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/beta.manifest
 fi
 
 if [[ "$BRANCH" == "stable" ]]
 then
-	echo -e "contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/stable.manifest" | tee -a build.log
-	contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/stable.manifest 2>&1 | tee -a build.log
+	echo -e "contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/stable.manifest"
+	contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/stable.manifest
 fi
 cd site
 echo "Done :)"
