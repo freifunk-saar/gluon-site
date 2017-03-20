@@ -35,7 +35,7 @@ do
 	echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION clean" | tee -a build.log
 	make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j9 clean 2>&1 | tee -a build.log
 	echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j9" | tee -a build.log
-	make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j9 2>&1 | tee -a build.log
+	make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j9 V=s 2>&1 | tee -a build.log
 	echo -e "\n\n\n============================================================\n\n" | tee -a build.log
 done
 echo "Compilation complete, creating manifest(s)" | tee -a build.log
