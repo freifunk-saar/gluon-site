@@ -4,7 +4,7 @@ then
 	exit 1;
 fi
 
-export GLUON_UPSTREAM_TAG="v2016.2.3"
+export GLUON_UPSTREAM_TAG="v2016.2.4"
 
 CURRENT_VERSION="1.4.0"
 CURRENT_BETA_SUFFIX="~rc1"
