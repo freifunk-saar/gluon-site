@@ -13,9 +13,6 @@ CURRENT_EXPERIMENTAL_SUFFIX="~exp$(date '+%Y%m%d')"
 ## Do NOT change anything below here!
 # Now we compute the actual version number.
 
-RELEASE_VERSION=${CURRENT_VERSION}
-
-
 if [[ "$CI_BUILD_REF_NAME" == "stable" ]]; then
         export RELEASE_VERSION=${CURRENT_VERSION}
 elif [[ "$CI_BUILD_REF_NAME" == "beta" ]]; then
@@ -23,5 +20,7 @@ elif [[ "$CI_BUILD_REF_NAME" == "beta" ]]; then
 else # experimental branch and local builds
         export RELEASE_VERSION=${CURRENT_VERSION}${CURRENT_EXPERIMENTAL_SUFFIX}
 fi
+
+export RELEASE_TAG=$(echo "${RELEASE_VERSION}" | tr '~' '-')
 
 echo "$RELEASE_VERSION"
