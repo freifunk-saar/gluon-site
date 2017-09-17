@@ -10,15 +10,6 @@ set -e
 ## Call from site directory with the version and branch variables
 ## properly configured in this script.
 
-# if version is unset, will use the default experimental version from site.mk
-VERSION=${3:-"exp$(date '+%Y%m%d')"}
-# branch must be set to either experimental, beta or stable
-BRANCH=${2:-"experimental"}
-# must point to valid ecdsa signing key created by ecdsakeygen, relative to Gluon base directory
-SIGNING_KEY=${1:-"../ecdsa-key-secret"}
-# Gluon doesn't like being built as root unless this is set:
-#export FORCE_UNSAFE_CONFIGURE=1
-
 cd ..
 if [ ! -d "site" ]; then
 	echo "This script must be called from within the site directory"
@@ -26,15 +17,16 @@ if [ ! -d "site" ]; then
 fi
 
 rm -rf output
-for TARGET in  ar71xx-generic ar71xx-nand brcm2708-bcm2708 brcm2708-bcm2709 mpc85xx-generic x86-generic x86-kvm_guest x86-64 x86-xen_domu
+for TARGET in \
+	ar71xx-generic ar71xx-nand brcm2708-bcm2708 brcm2708-bcm2709 mpc85xx-generic x86-generic x86-kvm_guest x86-64 x86-xen_domu
 do
 	echo "Starting work on target $TARGET"
 	echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION update"
 	make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION update
 	echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION clean"
-	make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j9 clean
-	echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j9"
-	make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j9
+	make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j8 clean
+	echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j8"
+	make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE=$VERSION -j8
 	echo -e "\n\n\n============================================================\n\n"
 done
 echo "Compilation complete, creating manifest(s)"

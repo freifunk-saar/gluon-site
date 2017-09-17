@@ -39,7 +39,7 @@ GLUON_SITE_PACKAGES := \
 #			opkg compare-versions "$1" '>>' "$2"
 #		to decide if a version is newer or not.
 
-DEFAULT_GLUON_RELEASE := $(shell site/version.sh)
+DEFAULT_GLUON_RELEASE := $(shell $(GLUONDIR)/site/version.sh)
 
 ##	GLUON_RELEASE
 #		call make with custom GLUON_RELEASE flag, to use your own release version scheme.
