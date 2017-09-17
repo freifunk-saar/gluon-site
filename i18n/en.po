@@ -45,3 +45,13 @@ msgstr ""
 "</p><p>"
 "Enjoy your Freifunk node and have fun exploring the Freifunk network! "
 "</p>"
+
+msgid "gluon-config-mode:altitude-label"
+msgstr "Height above ground (in meters)"
+
+msgid "gluon-config-mode:altitude-help"
+msgstr ""
+"Feel free to estimate the height, if you don't know it exactly. "
+"This information is optional and especially useful for nodes in heigh buildings "
+"and/or placed above each other. When placed in the basement, please use a negative "
+"height value."

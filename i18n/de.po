@@ -46,3 +46,13 @@ msgstr ""
 "</p><p>"
 "Viel Spaß mit deinem Knoten und der Erkundung von Freifunk! "
 "</p>"
+
+msgid "gluon-config-mode:altitude-label"
+msgstr "Höhe über Erdboden (in Meter)"
+
+msgid "gluon-config-mode:altitude-help"
+msgstr ""
+"Die Höhenangabe kann auch abgeschätzt werden, wenn kein exakter Wert bekannt ist. "
+"Die Angabe ist optional und insbesondere dann sinnvoll, wenn Knoten in höheren Gebäuden "
+"und/oder übereinander angebracht werden. Bei Positionierung im Keller bitte entsprechend "
+"negative Werte angeben."
