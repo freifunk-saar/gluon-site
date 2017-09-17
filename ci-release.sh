@@ -31,7 +31,8 @@ do
 	make GLUON_TARGET=$TARGET GLUON_RELEASE=$RELEASE_VERSION -j8
 	echo -e "\n\n\n============================================================\n\n"
 done
-echo "Compilation complete, creating manifest(s)"
+
+echo "Compilation complete, creating and signing manifest(s)"
 
 echo -e "make GLUON_BRANCH=experimental manifest"
 make GLUON_BRANCH=experimental manifest
@@ -56,8 +57,6 @@ then
 	contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/stable.manifest
 	echo -e "\n\n\n============================================================\n\n"
 fi
-
-echo "Manifest creation complete, signing manifest"
 
 cd site
 echo "Done :)"
