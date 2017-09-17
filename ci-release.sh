@@ -25,8 +25,6 @@ do
 	echo "Starting work on target $TARGET"
 	echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_RELEASE=$RELEASE_VERSION update"
 	make GLUON_TARGET=$TARGET GLUON_RELEASE=$RELEASE_VERSION update
-	echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_RELEASE=$RELEASE_VERSION clean"
-	make GLUON_TARGET=$TARGET GLUON_RELEASE=$RELEASE_VERSION -j8 clean
 	echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_RELEASE=$RELEASE_VERSION -j8"
 	make GLUON_TARGET=$TARGET GLUON_RELEASE=$RELEASE_VERSION -j8
 	echo -e "\n\n\n============================================================\n\n"
