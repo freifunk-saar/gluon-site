@@ -6,7 +6,7 @@ trigger:
     # Determine some global variables and then trigger the repo with the private keys for the actual build process
     - source version.sh
     - git tag "$RELEASE_TAG" "$CI_BUILD_REF" # just make sure the version does not exist already
-    - echo "Building Gluon ${GLUON_UPSTREAM_TAG} and commit ${CI_BUILD_REF} for FFSAAR version ${RELEASE_VERSION} (tag: ${RELEASE_TAG}) from the ${CI_BUILD_REF_NAME} branch"
+    - echo "Building Gluon ${GLUON_UPSTREAM_TAG} and commit ${CI_BUILD_REF} for FFSAAR version ${RELEASE_VERSION} (tag:"" ${RELEASE_TAG}) from the ${CI_BUILD_REF_NAME} branch"
     - export STAGING_DIR="${RELEASE_VERSION}$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 8 | head -n 1)"
     - curl -X POST -F "token=$CI_SECRET" -F "ref=master" -F "variables[GLUON_UPSTREAM_TAG]=$GLUON_UPSTREAM_TAG" -F "variables[RELEASE_REF]=$CI_BUILD_REF" -F "variables[RELEASE_BRANCH]=$CI_BUILD_REF_NAME" -F "variables[RELEASE_VERSION]=$RELEASE_VERSION" -F "variables[RELEASE_TAG]=$RELEASE_TAG" -F "variables[STAGING_DIR]=$STAGING_DIR" https://git.hacksaar.de/api/v3/projects/30/trigger/builds
   only:
