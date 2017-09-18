@@ -1,7 +1,6 @@
 image: tobitheo/gluon-build-docker:0.5
 
 trigger:
-  type: deploy
   script:
     # Determine some global variables and then trigger the repo with the private keys for the actual build process
     - source version.sh
