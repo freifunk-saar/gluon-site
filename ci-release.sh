@@ -49,8 +49,8 @@ fi
 
 if [[ "$RELEASE_BRANCH" == "stable" ]]
 then
-	echo -e "make GLUON_BRANCH=stable manifest"
-	make GLUON_BRANCH=stable manifest
+	echo -e "make GLUON_BRANCH=stable GLUON_PRIORITY=4 manifest"
+	make GLUON_BRANCH=stable GLUON_PRIORITY=4 manifest
 	echo -e "contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/stable.manifest"
 	contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/stable.manifest
 	echo -e "\n\n\n============================================================\n\n"
