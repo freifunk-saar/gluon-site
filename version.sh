@@ -1,6 +1,6 @@
 #!/bin/bash
 # This file prints the current version number.  When sources, it also sets some environment variables.
-# RELEASE_BRANCH is used to determine whether we use an experimental, beta, or stable version
+# $1 is used to determine whether we use an experimental, beta, or stable version
 
 # This is where we control which Gluon version to use.
 export GLUON_UPSTREAM_TAG="v2017.1.2"
@@ -13,9 +13,9 @@ CURRENT_EXPERIMENTAL_SUFFIX="~exp$(date '+%Y%m%d')"
 ## Do NOT change anything below here!
 # Now we compute the actual version number.
 
-if [[ "$RELEASE_BRANCH" == "stable" ]]; then
+if [[ "$1" == "stable" ]]; then
         export RELEASE_VERSION=${CURRENT_VERSION}
-elif [[ "$RELEASE_BRANCH" == "beta" ]]; then
+elif [[ "$1" == "beta" ]]; then
         export RELEASE_VERSION=${CURRENT_VERSION}${CURRENT_BETA_SUFFIX}
 else # experimental branch and local builds
         export RELEASE_VERSION=${CURRENT_VERSION}${CURRENT_EXPERIMENTAL_SUFFIX}
