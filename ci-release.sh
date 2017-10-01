@@ -32,16 +32,16 @@ done
 
 echo "Compilation complete, creating and signing manifest(s)"
 
-echo -e "make GLUON_BRANCH=experimental manifest"
-make GLUON_BRANCH=experimental manifest
+echo -e "make GLUON_BRANCH=experimental GLUON_RELEASE=$RELEASE_VERSION manifest"
+make GLUON_BRANCH=experimental GLUON_RELEASE=$RELEASE_VERSION manifest
 echo -e "contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/experimental.manifest"
 contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/experimental.manifest
 echo -e "\n\n\n============================================================\n\n"
 
 if [[ "$RELEASE_BRANCH" == "beta" ]] || [[ "$RELEASE_BRANCH" == "stable" ]]
 then
-	echo -e "make GLUON_BRANCH=beta manifest"
-	make GLUON_BRANCH=beta manifest
+	echo -e "make GLUON_BRANCH=beta GLUON_RELEASE=$RELEASE_VERSION manifest"
+	make GLUON_BRANCH=beta GLUON_RELEASE=$RELEASE_VERSION manifest
 	echo -e "contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/beta.manifest"
 	contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/beta.manifest
 	echo -e "\n\n\n============================================================\n\n"
@@ -49,8 +49,8 @@ fi
 
 if [[ "$RELEASE_BRANCH" == "stable" ]]
 then
-	echo -e "make GLUON_BRANCH=stable GLUON_PRIORITY=4 manifest"
-	make GLUON_BRANCH=stable GLUON_PRIORITY=4 manifest
+	echo -e "make GLUON_BRANCH=stable GLUON_RELEASE=$RELEASE_VERSION GLUON_PRIORITY=4 manifest"
+	make GLUON_BRANCH=stable GLUON_RELEASE=$RELEASE_VERSION GLUON_PRIORITY=4 manifest
 	echo -e "contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/stable.manifest"
 	contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/stable.manifest
 	echo -e "\n\n\n============================================================\n\n"
