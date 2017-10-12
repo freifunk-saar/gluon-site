@@ -28,9 +28,9 @@ for TARGET in \
 	ar71xx-generic ar71xx-nand ar71xx-tiny brcm2708-bcm2708 brcm2708-bcm2709 mpc85xx-generic x86-generic x86-geode x86-64
 do
 	echo "Starting work on target $TARGET"
-	# GLUON_BRANCH needs to be set to something non-empty to actually enable the autoupdater.
-	run_and_print make GLUON_TARGET=$TARGET GLUON_BRANCH=$RELEASE_BRANCH GLUON_RELEASE="$RELEASE_VERSION" update
-	run_and_print make GLUON_TARGET=$TARGET GLUON_BRANCH=$RELEASE_BRANCH GLUON_RELEASE="$RELEASE_VERSION" -j8
+	# GLUON_BRANCH configures the default autoupdater branch.
+	run_and_print make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE="$RELEASE_VERSION" update
+	run_and_print make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE="$RELEASE_VERSION" -j8
 	echo -e "\n\n\n============================================================\n\n"
 done
 
