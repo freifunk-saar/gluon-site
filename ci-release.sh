@@ -12,6 +12,11 @@ set -e
 
 SIGNING_KEY=$(readlink -e "$1")
 
+function run_and_print() {
+    echo -e "\n\n\n$@"
+    "$@"
+}
+
 cd ..
 if [ ! -d "site" ]; then
 	echo "This script must be called from within the site directory"
@@ -23,36 +28,29 @@ for TARGET in \
 	ar71xx-generic ar71xx-nand ar71xx-tiny brcm2708-bcm2708 brcm2708-bcm2709 mpc85xx-generic x86-generic x86-geode x86-64
 do
 	echo "Starting work on target $TARGET"
-	echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_RELEASE=$RELEASE_VERSION update"
-	make GLUON_TARGET=$TARGET GLUON_RELEASE=$RELEASE_VERSION update
-	echo -e "\n\n\nmake GLUON_TARGET=$TARGET GLUON_RELEASE=$RELEASE_VERSION -j8"
-	make GLUON_TARGET=$TARGET GLUON_RELEASE=$RELEASE_VERSION -j8
+	# GLUON_BRANCH needs to be set to something non-empty to actually enable the autoupdater.
+	run_and_print make GLUON_TARGET=$TARGET GLUON_BRANCH=$RELEASE_BRANCH GLUON_RELEASE="$RELEASE_VERSION" update
+	run_and_print make GLUON_TARGET=$TARGET GLUON_BRANCH=$RELEASE_BRANCH GLUON_RELEASE="$RELEASE_VERSION" -j8
 	echo -e "\n\n\n============================================================\n\n"
 done
 
 echo "Compilation complete, creating and signing manifest(s)"
 
-echo -e "make GLUON_BRANCH=experimental GLUON_RELEASE=$RELEASE_VERSION manifest"
-make GLUON_BRANCH=experimental GLUON_RELEASE=$RELEASE_VERSION manifest
-echo -e "contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/experimental.manifest"
-contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/experimental.manifest
+run_and_print make GLUON_BRANCH=experimental GLUON_RELEASE=$RELEASE_VERSION manifest
+run_and_print contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/experimental.manifest
 echo -e "\n\n\n============================================================\n\n"
 
 if [[ "$RELEASE_BRANCH" == "beta" ]] || [[ "$RELEASE_BRANCH" == "stable" ]]
 then
-	echo -e "make GLUON_BRANCH=beta GLUON_RELEASE=$RELEASE_VERSION manifest"
-	make GLUON_BRANCH=beta GLUON_RELEASE=$RELEASE_VERSION manifest
-	echo -e "contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/beta.manifest"
-	contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/beta.manifest
+	run_and_print make GLUON_BRANCH=beta GLUON_RELEASE=$RELEASE_VERSION manifest
+	run_and_print contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/beta.manifest
 	echo -e "\n\n\n============================================================\n\n"
 fi
 
 if [[ "$RELEASE_BRANCH" == "stable" ]]
 then
-	echo -e "make GLUON_BRANCH=stable GLUON_RELEASE=$RELEASE_VERSION GLUON_PRIORITY=4 manifest"
-	make GLUON_BRANCH=stable GLUON_RELEASE=$RELEASE_VERSION GLUON_PRIORITY=4 manifest
-	echo -e "contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/stable.manifest"
-	contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/stable.manifest
+	run_and_print make GLUON_BRANCH=stable GLUON_RELEASE=$RELEASE_VERSION GLUON_PRIORITY=4 manifest
+	run_and_print contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/stable.manifest
 	echo -e "\n\n\n============================================================\n\n"
 fi
 
