@@ -5,7 +5,6 @@
 #               The gluon-mesh-batman-adv-* package must come first because of the dependency resolution
 
 GLUON_SITE_PACKAGES := \
-	ffsaar-tunneldigger \
 	gluon-mesh-batman-adv-15 \
 	gluon-respondd \
 	gluon-autoupdater \
