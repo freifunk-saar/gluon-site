@@ -3,10 +3,10 @@
 # $1 is used to determine whether we use an experimental, beta, or stable version
 
 # This is where we control which Gluon version to use.
-export GLUON_UPSTREAM_TAG="v2017.1.5"
+export GLUON_UPSTREAM_TAG="v2017.1.6"
 
 # This is where we control the version number of our firmware.
-CURRENT_VERSION="1.6.1"
+CURRENT_VERSION="1.6.2"
 CURRENT_BETA_SUFFIX="~rc1"
 CURRENT_EXPERIMENTAL_SUFFIX="~exp$(date '+%Y%m%d')"
 
