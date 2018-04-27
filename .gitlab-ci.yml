@@ -1,4 +1,4 @@
-image: tobitheo/gluon-build-docker:0.5
+image: tobitheo/gluon-build-docker:latest
 
 trigger:
   script:
