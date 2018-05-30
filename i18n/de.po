@@ -48,7 +48,7 @@ msgstr ""
 "</p>"
 
 msgid "gluon-config-mode:altitude-label"
-msgstr "Höhe über Erdboden (in Meter)"
+msgstr "Höhe über dem Erdboden (in Meter)"
 
 msgid "gluon-config-mode:altitude-help"
 msgstr ""
