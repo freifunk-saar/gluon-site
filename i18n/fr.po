@@ -45,3 +45,12 @@ msgstr ""
 "</p><p>"
 "Profitez de votre nœud Freifunk et amusez-vous en explorant le réseau Freifunk! "
 "</p>"
+
+msgid "gluon-config-mode:altitude-label"
+msgstr "Hauteur au-dessus du niveau du sol (en mètres)"
+
+msgid "gluon-config-mode:altitude-help"
+msgstr ""
+"L'indication de hauteur peut également être estimée si aucune valeur exacte n'est connue. "
+"L'indication est facultative et particulièrement utile lorsque les nœuds sont placés dans des bâtiments de grande hauteur et / ou les uns sont installés au-dessus des autres. "
+"Lors du positionnement dans le sous-sol, veuillez indiquer des valeurs négatives."
