@@ -6,8 +6,8 @@
 export GLUON_UPSTREAM_TAG="v2017.1.7"
 
 # This is where we control the version number of our firmware.
-CURRENT_VERSION="1.6.2"
-CURRENT_BETA_SUFFIX="~rc3"
+CURRENT_VERSION="1.6.3"
+CURRENT_BETA_SUFFIX="~rc1"
 CURRENT_EXPERIMENTAL_SUFFIX="~exp$(date '+%Y%m%d')"
 
 ###################################################################################################
