@@ -10,7 +10,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-autoupdater \
 	gluon-config-mode-autoupdater \
 	gluon-config-mode-core \
-	gluon-config-mode-contact-info-ffsaar \
+	gluon-config-mode-contact-info \
 	gluon-config-mode-hostname \
 	gluon-config-mode-mesh-vpn \
 	gluon-config-mode-geo-location \
