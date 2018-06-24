@@ -56,6 +56,3 @@ msgstr ""
 "Die Angabe ist optional und insbesondere dann sinnvoll, wenn Knoten in höheren Gebäuden "
 "und/oder übereinander angebracht werden. Bei Positionierung im Keller bitte entsprechend "
 "negative Werte angeben."
-
-msgid "gluon-config-mode:contact-help"
-msgstr "Diese Information ist wichtig, weil sie uns hilft, im Falle von Problemen Kontakt mit dir aufzunehmen. Du kannst die Angabe jederzeit ändern oder entfernen, indem du den Knoten in den Konfigurationsmodus versetzt und wieder auf dieses Interface zugreifst."

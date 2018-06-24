@@ -55,6 +55,3 @@ msgstr ""
 "This information is optional and especially useful for nodes in heigh buildings "
 "and/or placed above each other. When placed in the basement, please use a negative "
 "height value."
-
-msgid "gluon-config-mode:contact-help"
-msgstr "This information is important because it lets us contact you in case of problems. You can change or remove the information any time by putting the node into config mode and accessing this interface again."
