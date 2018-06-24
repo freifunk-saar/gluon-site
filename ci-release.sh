@@ -11,6 +11,7 @@ set -e
 ## properly configured in this script.
 
 SIGNING_KEY=$(readlink -e "$1")
+JOBS=$(nproc --all)
 
 function run_and_print() {
     echo -e "\n\n\n$@"
@@ -29,8 +30,8 @@ for TARGET in \
 do
 	echo "Starting work on target $TARGET"
 	# GLUON_BRANCH configures the default autoupdater branch.
-	run_and_print make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE="$RELEASE_VERSION" update
-	run_and_print make GLUON_TARGET=$TARGET GLUON_BRANCH=stable GLUON_RELEASE="$RELEASE_VERSION" -j8
+	run_and_print make GLUON_TARGET="$TARGET" GLUON_BRANCH=stable GLUON_RELEASE="$RELEASE_VERSION" update
+	run_and_print make GLUON_TARGET="$TARGET" GLUON_BRANCH=stable GLUON_RELEASE="$RELEASE_VERSION" -j$JOBS
 	echo -e "\n\n\n============================================================\n\n"
 done
 
