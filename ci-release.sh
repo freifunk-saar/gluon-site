@@ -23,19 +23,20 @@ if [ ! -d "site" ]; then
 	echo "This script must be called from within the site directory"
 	return
 fi
+. site/ansi-colors.sh
 
 rm -rf output
 for TARGET in \
 	ar71xx-generic ar71xx-tiny ar71xx-nand brcm2708-bcm2708 brcm2708-bcm2709 mpc85xx-generic ramips-mt7621 x86-generic x86-geode x86-64
 do
-	echo "Starting work on target $TARGET"
+	echo_color "$BOLDGREEN" "Starting work on target $TARGET"
 	# GLUON_BRANCH configures the default autoupdater branch.
 	run_and_print make GLUON_TARGET="$TARGET" GLUON_BRANCH=stable GLUON_RELEASE="$RELEASE_VERSION" update
 	run_and_print make GLUON_TARGET="$TARGET" GLUON_BRANCH=stable GLUON_RELEASE="$RELEASE_VERSION" -j$JOBS
 	echo -e "\n\n\n============================================================\n\n"
 done
 
-echo "Compilation complete, creating and signing manifest(s)"
+echo_color "$BOLDGREEN" "Compilation complete, creating and signing manifest(s)"
 
 run_and_print make GLUON_BRANCH=experimental GLUON_RELEASE=$RELEASE_VERSION manifest
 run_and_print contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/experimental.manifest
@@ -56,4 +57,4 @@ then
 fi
 
 cd site
-echo "Done :)"
+echo_color "$BOLDGREEN" "Done :)"
