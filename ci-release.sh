@@ -51,7 +51,7 @@ fi
 
 if [[ "$RELEASE_BRANCH" == "stable" ]]
 then
-	run_and_print make GLUON_BRANCH=stable GLUON_RELEASE=$RELEASE_VERSION GLUON_PRIORITY=4 manifest
+	run_and_print make GLUON_BRANCH=stable GLUON_RELEASE=$RELEASE_VERSION GLUON_PRIORITY=5 manifest
 	run_and_print contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/stable.manifest
 	echo -e "\n\n\n============================================================\n\n"
 fi
