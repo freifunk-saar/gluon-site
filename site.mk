@@ -9,7 +9,6 @@ GLUON_SITE_PACKAGES := \
 	gluon-respondd \
 	gluon-autoupdater \
 	gluon-config-mode-autoupdater \
-	gluon-config-mode-core \
 	gluon-config-mode-contact-info \
 	gluon-config-mode-hostname \
 	gluon-config-mode-mesh-vpn \
@@ -17,7 +16,6 @@ GLUON_SITE_PACKAGES := \
 	gluon-ebtables-filter-multicast \
 	gluon-ebtables-filter-ra-dhcp \
 	gluon-ebtables-source-filter \
-	gluon-ebtables-segment-mld \
 	gluon-web-admin \
 	gluon-web-autoupdater \
 	gluon-web-network \
@@ -26,7 +24,6 @@ GLUON_SITE_PACKAGES := \
 	gluon-mesh-vpn-tunneldigger \
 	gluon-filter-ra \
 	gluon-radvd \
-	gluon-setup-mode \
 	gluon-status-page \
 	respondd-module-airtime \
 	iwinfo \
