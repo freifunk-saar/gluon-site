@@ -1,34 +1,33 @@
-##	gluon site.mk makefile example
+##	GLUON_FEATURES
+#		Specify Gluon features/packages to enable;
+#		Gluon will automatically enable a set of packages
+#		depending on the combination of features listed
+
+GLUON_FEATURES := \
+	autoupdater \
+	mesh-batman-adv-15 \
+	mesh-vpn-tunneldigger \
+	ebtables-filter-multicast \
+	ebtables-filter-ra-dhcp \
+	ebtables-source-filter \
+	ebtables-limit-arp \
+	radvd \
+	radv-filterd \
+	respondd \
+	web-wizard \
+	web-advanced \
+	web-private-wifi \
+	status-page
 
 ##	GLUON_SITE_PACKAGES
-#		specify gluon/openwrt packages to include here
-#               The gluon-mesh-batman-adv-* package must come first because of the dependency resolution
+#		Specify additional Gluon/LEDE packages to include here;
+#		A minus sign may be prepended to remove a packages from the
+#		selection that would be enabled by default or due to the
+#		chosen feature flags
 
 GLUON_SITE_PACKAGES := \
-	gluon-mesh-batman-adv-15 \
-	gluon-respondd \
-	gluon-autoupdater \
-	gluon-config-mode-autoupdater \
-	gluon-config-mode-contact-info \
-	gluon-config-mode-hostname \
-	gluon-config-mode-mesh-vpn \
-	gluon-config-mode-geo-location \
-	gluon-ebtables-filter-multicast \
-	gluon-ebtables-filter-ra-dhcp \
-	gluon-ebtables-source-filter \
-	gluon-ebtables-limit-arp \
-	gluon-web-admin \
-	gluon-web-autoupdater \
-	gluon-web-network \
-	gluon-web-wifi-config \
-	gluon-web-private-wifi \
-	gluon-mesh-vpn-tunneldigger \
-	gluon-radvd \
-	gluon-radv-filterd \
-	gluon-status-page \
 	respondd-module-airtime \
 	iwinfo \
-	iptables \
 	haveged
 
 ##	DEFAULT_GLUON_RELEASE
