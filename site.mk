@@ -16,14 +16,15 @@ GLUON_SITE_PACKAGES := \
 	gluon-ebtables-filter-multicast \
 	gluon-ebtables-filter-ra-dhcp \
 	gluon-ebtables-source-filter \
+	gluon-ebtables-limit-arp \
 	gluon-web-admin \
 	gluon-web-autoupdater \
 	gluon-web-network \
 	gluon-web-wifi-config \
 	gluon-web-private-wifi \
 	gluon-mesh-vpn-tunneldigger \
-	gluon-filter-ra \
 	gluon-radvd \
+	gluon-radv-filterd \
 	gluon-status-page \
 	respondd-module-airtime \
 	iwinfo \

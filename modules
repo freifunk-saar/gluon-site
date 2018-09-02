@@ -1,7 +1,3 @@
 ##	GLUON_SITE_FEEDS
 #		for each feed name given, add the corresponding PACKAGES_* lines
-GLUON_SITE_FEEDS='ffsaar'
-
-PACKAGES_FFSAAR_REPO='https://github.com/freifunk-saar/gluon-ffsaar.git'
-PACKAGES_FFSAAR_COMMIT=6a4ffdab08e176511052a3b0808e0ecaa5edb2af
-PACKAGES_FFSAAR_BRANCH=master
+GLUON_SITE_FEEDS=''
