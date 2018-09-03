@@ -36,8 +36,10 @@ for TARGET in \
 do
 	echo_color "$BOLDGREEN" "Starting work on target $TARGET"
 	# GLUON_BRANCH configures the default autoupdater branch.
+        # We clean to avoid running out of disk space.
 	run_and_print make GLUON_TARGET="$TARGET" GLUON_BRANCH=stable GLUON_RELEASE="$RELEASE_VERSION" update
 	run_and_print make GLUON_TARGET="$TARGET" GLUON_BRANCH=stable GLUON_RELEASE="$RELEASE_VERSION" -j$JOBS
+	run_and_print make GLUON_TARGET="$TARGET" GLUON_BRANCH=stable GLUON_RELEASE="$RELEASE_VERSION" clean
 	echo -e "\n\n\n============================================================\n\n"
 done
 
