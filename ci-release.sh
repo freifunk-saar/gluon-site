@@ -35,6 +35,7 @@ for TARGET in \
 	x86-generic x86-geode x86-64
 do
 	echo_color "$BOLDGREEN" "Starting work on target $TARGET"
+	df -h
 	# GLUON_BRANCH configures the default autoupdater branch.
         # We clean to avoid running out of disk space.
 	run_and_print make GLUON_TARGET="$TARGET" GLUON_BRANCH=stable GLUON_RELEASE="$RELEASE_VERSION" update
