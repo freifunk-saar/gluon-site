@@ -31,7 +31,7 @@ for TARGET in \
 	brcm2708-bcm2708 brcm2708-bcm2709 \
 	mpc85xx-generic \
 	ramips-mt7620 ramips-mt7621 ramips-mt7628 ramips-rt305x \
-	ipq806x sunxi \
+	sunxi \
 	x86-generic x86-geode x86-64
 do
 	echo_color "$BOLDGREEN" "Starting work on target $TARGET"
