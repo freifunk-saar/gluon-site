@@ -32,6 +32,7 @@ for TARGET in \
 	mpc85xx-generic \
 	ramips-mt7620 ramips-mt7621 ramips-mt7628 ramips-rt305x \
 	sunxi \
+	ipq40xx \
 	x86-generic x86-geode x86-64
 do
 	echo_color "$BOLDGREEN" "Starting work on target $TARGET"
