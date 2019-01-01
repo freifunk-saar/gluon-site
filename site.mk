@@ -15,6 +15,7 @@ GLUON_FEATURES := \
 	radv-filterd \
 	respondd \
 	web-wizard \
+	web-osm \
 	web-advanced \
 	web-private-wifi \
 	status-page
