@@ -11,13 +11,13 @@ GLUON_FEATURES := \
 	ebtables-filter-ra-dhcp \
 	ebtables-source-filter \
 	ebtables-limit-arp \
-	radvd \
 	radv-filterd \
+	radvd \
 	respondd \
 	web-wizard \
-	web-osm \
 	web-advanced \
 	web-private-wifi \
+	config-mode-geo-location-osm \
 	status-page
 
 ##	GLUON_SITE_PACKAGES
