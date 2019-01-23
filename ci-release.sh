@@ -26,6 +26,9 @@ fi
 . site/ansi-colors.sh
 
 rm -rf output
+# one-time preparation
+run_and_print make GLUON_BRANCH=stable GLUON_RELEASE="$RELEASE_VERSION" update
+# loop for a
 for TARGET in \
 	ar71xx-generic ar71xx-tiny ar71xx-nand \
 	brcm2708-bcm2708 brcm2708-bcm2709 \
@@ -39,9 +42,8 @@ do
 	df -h
 	# GLUON_BRANCH configures the default autoupdater branch.
         # We clean to avoid running out of disk space.
-	run_and_print make GLUON_TARGET="$TARGET" GLUON_BRANCH=stable GLUON_RELEASE="$RELEASE_VERSION" update
 	run_and_print make GLUON_TARGET="$TARGET" GLUON_BRANCH=stable GLUON_RELEASE="$RELEASE_VERSION" -j$JOBS
-	run_and_print make GLUON_TARGET="$TARGET" GLUON_BRANCH=stable GLUON_RELEASE="$RELEASE_VERSION" clean
+	run_and_print make GLUON_TARGET="$TARGET" GLUON_BRANCH=stable GLUON_RELEASE="$RELEASE_VERSION" clean -j$JOBS
 	echo -e "\n\n\n============================================================\n\n"
 done
 
