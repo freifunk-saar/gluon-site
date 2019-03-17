@@ -27,7 +27,7 @@ fi
 
 rm -rf output
 # one-time preparation
-run_and_print make GLUON_BRANCH=stable GLUON_RELEASE="$RELEASE_VERSION" update
+run_and_print make update
 # loop for a
 for TARGET in \
 	ar71xx-generic ar71xx-tiny ar71xx-nand \
@@ -41,9 +41,9 @@ do
 	echo_color "$BOLDGREEN" "Starting work on target $TARGET"
 	df -h
 	# GLUON_BRANCH configures the default autoupdater branch.
+	run_and_print make GLUON_TARGET="$TARGET" GLUON_BRANCH="$RELEASE_BRANCH" GLUON_RELEASE="$RELEASE_VERSION" -j$JOBS
         # We clean to avoid running out of disk space.
-	run_and_print make GLUON_TARGET="$TARGET" GLUON_BRANCH=stable GLUON_RELEASE="$RELEASE_VERSION" -j$JOBS
-	run_and_print make GLUON_TARGET="$TARGET" GLUON_BRANCH=stable GLUON_RELEASE="$RELEASE_VERSION" clean -j$JOBS
+	run_and_print make GLUON_TARGET="$TARGET" clean -j$JOBS
 	echo -e "\n\n\n============================================================\n\n"
 done
 
