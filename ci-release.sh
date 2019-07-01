@@ -49,20 +49,20 @@ done
 
 echo_color "$BOLDGREEN" "Compilation complete, creating and signing manifest(s)"
 
-run_and_print make GLUON_BRANCH=experimental GLUON_RELEASE=$RELEASE_VERSION manifest
+run_and_print make GLUON_BRANCH=experimental GLUON_PRIORITY=1 GLUON_RELEASE=$RELEASE_VERSION manifest
 run_and_print contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/experimental.manifest
 echo -e "\n\n\n============================================================\n\n"
 
 if [[ "$RELEASE_BRANCH" == "beta" ]] || [[ "$RELEASE_BRANCH" == "stable" ]]
 then
-	run_and_print make GLUON_BRANCH=beta GLUON_RELEASE=$RELEASE_VERSION manifest
+	run_and_print make GLUON_BRANCH=beta GLUON_PRIORITY=2 GLUON_RELEASE=$RELEASE_VERSION manifest
 	run_and_print contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/beta.manifest
 	echo -e "\n\n\n============================================================\n\n"
 fi
 
 if [[ "$RELEASE_BRANCH" == "stable" ]]
 then
-	run_and_print make GLUON_BRANCH=stable GLUON_RELEASE=$RELEASE_VERSION GLUON_PRIORITY=5 manifest
+	run_and_print make GLUON_BRANCH=stable GLUON_PRIORITY=7 GLUON_RELEASE=$RELEASE_VERSION manifest
 	run_and_print contrib/sign.sh $SIGNING_KEY output/images/sysupgrade/stable.manifest
 	echo -e "\n\n\n============================================================\n\n"
 fi
