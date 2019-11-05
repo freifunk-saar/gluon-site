@@ -32,7 +32,7 @@ run_and_print make update
 for TARGET in \
 	ar71xx-generic ar71xx-tiny ar71xx-nand \
 	brcm2708-bcm2708 brcm2708-bcm2709 \
-	mpc85xx-generic \
+	mpc85xx-generic mpc85xx-p1020 \
 	ramips-mt7620 ramips-mt7621 ramips-mt76x8 ramips-rt305x \
 	sunxi-cortexa7 \
 	ipq40xx \
