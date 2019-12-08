@@ -24,11 +24,13 @@ if [ ! -d "site" ]; then
 	exit 1
 fi
 . site/ansi-colors.sh # utilities
-. site/banner.sh # install our banner
 
 rm -rf output
 # one-time preparation
 run_and_print make update
+. site/banner.sh # install our banner
+cat openwrt/package/base-files/files/etc/banner
+echo
 # loop for a
 for TARGET in \
 	ar71xx-generic ar71xx-tiny ar71xx-nand \
