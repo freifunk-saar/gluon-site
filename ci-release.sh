@@ -21,9 +21,10 @@ function run_and_print() {
 cd ..
 if [ ! -d "site" ]; then
 	echo "This script must be called from within the site directory"
-	return
+	exit 1
 fi
-. site/ansi-colors.sh
+. site/ansi-colors.sh # utilities
+. site/banner.sh # install our banner
 
 rm -rf output
 # one-time preparation
