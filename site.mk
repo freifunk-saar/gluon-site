@@ -28,7 +28,8 @@ GLUON_FEATURES := \
 GLUON_SITE_PACKAGES := \
 	respondd-module-airtime \
 	iwinfo \
-	haveged
+	haveged \
+	gluon-ffsaar-watchdog
 
 ##	DEFAULT_GLUON_RELEASE
 #		version string to use for images
