@@ -29,7 +29,8 @@ GLUON_SITE_PACKAGES := \
 	respondd-module-airtime \
 	iwinfo \
 	haveged \
-	gluon-ffsaar-watchdog
+	gluon-ffsaar-watchdog \
+	tunneldigger-dev
 
 ##	DEFAULT_GLUON_RELEASE
 #		version string to use for images
