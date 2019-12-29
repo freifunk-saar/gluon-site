@@ -39,14 +39,11 @@ GLUON_SITE_PACKAGES := \
 
 DEFAULT_GLUON_RELEASE := $(shell $(GLUON_SITEDIR)/version.sh)
 
-##	GLUON_RELEASE
-#		call make with custom GLUON_RELEASE flag, to use your own release version scheme.
-#		e.g.:
-#			$ make images GLUON_RELEASE=23.42+5
-#		would generate images named like this:
-#			gluon-ff%site_code%-23.42+5-%router_model%.bin
+# Enable multo-domain support.
+GLUON_MULTIDOMAIN := 1
 
-# Allow overriding the release number from the command line
+# Set release number.
+# Using `?=` to allow overriding the release number from the command line.
 GLUON_RELEASE ?= $(DEFAULT_GLUON_RELEASE)
 
 # Default priority for updates.
