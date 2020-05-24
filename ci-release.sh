@@ -34,11 +34,13 @@ echo
 # loop for a
 for TARGET in \
 	ar71xx-generic ar71xx-tiny ar71xx-nand \
+	ath79-generic \
 	brcm2708-bcm2708 brcm2708-bcm2709 \
 	mpc85xx-generic mpc85xx-p1020 \
 	ramips-mt7620 ramips-mt7621 ramips-mt76x8 ramips-rt305x \
 	sunxi-cortexa7 \
-	ipq40xx \
+	ipq40xx-generic ipq806x-generic \
+	lantiq-xway lantiq-xrx200 \
 	x86-generic x86-geode x86-64
 do
 	echo_color "$BOLDGREEN" "Starting work on target $TARGET"

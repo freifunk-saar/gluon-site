@@ -55,8 +55,5 @@ GLUON_LANGS ?= en de fr
 # TP-LINK regional firmware
 GLUON_REGION ?= eu
 
-# We use 11s for the mesh, not the old IBSS
-GLUON_WLAN_MESH ?= 11s
-
 # We have lots of these deprecated devices so support them as long as we can...
 GLUON_DEPRECATED ?= full
