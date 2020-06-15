@@ -16,7 +16,7 @@ _/ ____\\/ ____\\___________  _____ _______
  |__|   |__| /_____/ (_____/(_____//__|
  -----------------------------------------------------
  %D %V, %C
- gluon-ffsaar $RELEASE_VERSION / gluon $(git describe)
+ gluon-ffsaar $RELEASE_VERSION / gluon $(git describe | sed -E 's/-g([a-z0-9]{7})/-\1/')
  -----------------------------------------------------
  Gluon commandline administration reference:
  https://github.com/freifunk-gluon/gluon/wiki/Commandline-administration
