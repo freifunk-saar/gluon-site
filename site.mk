@@ -28,7 +28,6 @@ GLUON_FEATURES := \
 GLUON_SITE_PACKAGES := \
 	respondd-module-airtime \
 	iwinfo \
-	haveged \
 	gluon-ffsaar-watchdog
 
 ##	DEFAULT_GLUON_RELEASE
