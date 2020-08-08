@@ -12,6 +12,7 @@ set -e
 
 SIGNING_KEY=$(readlink -e "$1")
 JOBS=$(nproc --all)
+GLUON_AUTOREMOVE=1
 
 function run_and_print() {
     echo -e "\n\n\n$@"
@@ -38,7 +39,7 @@ do
 	df -h
 	# GLUON_BRANCH configures the default autoupdater branch.
 	run_and_print make GLUON_TARGET="$TARGET" GLUON_BRANCH="$RELEASE_BRANCH" GLUON_RELEASE="$RELEASE_VERSION" -j$JOBS
-        # We clean to avoid running out of disk space.
+	# We clean to avoid running out of disk space.
 	run_and_print make GLUON_TARGET="$TARGET" clean -j$JOBS
 	echo -e "\n\n\n============================================================\n\n"
 done
