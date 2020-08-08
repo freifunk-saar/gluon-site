@@ -3,7 +3,7 @@
 # $1 is used to determine whether we use an experimental, beta, or stable version
 
 # This is where we control which Gluon version to use.
-export GLUON_UPSTREAM_TAG="5696be7240ba351f662b5b2ad076d6210cede58f"
+export GLUON_UPSTREAM_TAG="v2020.2"
 
 # This is where we control the version number of our firmware.
 CURRENT_VERSION="1.9.0"
