@@ -16,6 +16,14 @@ msgstr ""
 "Freifunk Saar. Remplissez le formulaire suivant en fonction de vos besoins "
 "et enregistrez le."
 
+msgid "gluon-config-mode:domain"
+msgstr "Domaine"
+
+msgid "gluon-config-mode:domain-select"
+msgstr "Ici, vous avez la possibilité de sélectionner le domaine dans lequel "
+"se trouve votre nœud. N'oubliez pas que votre nœud ne peut se connecter "
+"qu'aux nœuds du domaine sélectionné."
+
 msgid "gluon-config-mode:pubkey"
 msgstr ""
 "<!-- empty -->"

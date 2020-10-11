@@ -16,6 +16,15 @@ msgstr ""
 "Knoten. Fülle das folgende Formular deinen Vorstellungen entsprechend "
 "aus und sende es ab."
 
+msgid "gluon-config-mode:domain"
+msgstr "Domäne"
+
+msgid "gluon-config-mode:domain-select"
+msgstr ""
+"Bitte wähle die Domäne, die deinem Landkreis entspricht. "
+"Bitte denke daran, dass sich dein Knoten nur mit anderen "
+"Knoten der ausgewählten Domäne verbinden kann."
+
 msgid "gluon-config-mode:pubkey"
 msgstr ""
 "<!-- empty -->"

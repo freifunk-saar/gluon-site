@@ -15,6 +15,15 @@ msgstr ""
 "Welcome the the setup wizard of your new Freifunk Saar node. "
 "Please fill out the following form and transmit it."
 
+msgid "gluon-config-mode:domain"
+msgstr "Domain"
+
+msgid "gluon-config-mode:domain-select"
+msgstr ""
+"Please select the domain corresponding to your county. "
+"Please keep in mind that your router only connects with other nodes "
+"of the selected domain."
+
 msgid "gluon-config-mode:pubkey"
 msgstr ""
 "<!-- empty -->"
