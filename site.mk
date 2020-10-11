@@ -28,7 +28,10 @@ GLUON_FEATURES := \
 GLUON_SITE_PACKAGES := \
 	respondd-module-airtime \
 	iwinfo \
-	gluon-ffsaar-watchdog
+	gluon-ffsaar-watchdog \
+	gluon-config-mode-domain-select \
+	ffda-domain-director \
+	gluon-web-ffda-domain-director
 
 ##	DEFAULT_GLUON_RELEASE
 #		version string to use for images
