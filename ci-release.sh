@@ -16,7 +16,11 @@ GLUON_AUTOREMOVE=1
 
 function run_and_print() {
     echo -e "\n\n\n$@"
-    "$@"
+    rm -f log
+    if ! "$@" &>log; then
+        cat log
+        exit 1
+    fi
 }
 
 cd ..
@@ -38,7 +42,7 @@ do
 	echo_color "$BOLDGREEN" "Starting work on target $TARGET"
 	df -h
 	# GLUON_BRANCH configures the default autoupdater branch.
-	run_and_print make GLUON_TARGET="$TARGET" GLUON_BRANCH="$RELEASE_BRANCH" GLUON_RELEASE="$RELEASE_VERSION" -j$JOBS
+	run_and_print make GLUON_TARGET="$TARGET" GLUON_BRANCH="$RELEASE_BRANCH" GLUON_RELEASE="$RELEASE_VERSION" -j$JOBS V=s
 	# We clean to avoid running out of disk space.
 	run_and_print make GLUON_TARGET="$TARGET" clean -j$JOBS
 	echo -e "\n\n\n============================================================\n\n"
