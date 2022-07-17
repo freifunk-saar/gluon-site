@@ -3,7 +3,7 @@
 GLUON_SITE_FEEDS='ffsaar ffda_packages'
 
 PACKAGES_FFSAAR_REPO='https://git.hacksaar.de/FreifunkSaar/gluon-ffsaar'
-PACKAGES_FFSAAR_COMMIT=c7065ac9f22f89e42e130b545079e87aeda8c6d6
+PACKAGES_FFSAAR_COMMIT=250ae45f23f13d5f387df37b529c2ec14a27f613
 PACKAGES_FFSAAR_BRANCH=master
 
 PACKAGES_FFDA_PACKAGES_REPO='https://github.com/freifunk-saar/ffda-packages'
