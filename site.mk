@@ -16,7 +16,6 @@ GLUON_FEATURES := \
 	web-wizard \
 	web-advanced \
 	web-private-wifi \
-	wireless-encryption-wpa3 \
 	config-mode-geo-location-osm \
 	status-page
 
