@@ -18,7 +18,8 @@ function run_and_print() {
     echo -e "\n\n\n$@"
     rm -f log
     if ! "$@" &>log; then
-        cat log
+        echo_color "$BOLDRED" "ERROR while running above command:"
+        cat log || (echo_color "$BOLDRED" "ERROR while dumping stderr; here are the last 100 lines:" && tail -n100 log)
         exit 1
     fi
 }
