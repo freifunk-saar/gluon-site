@@ -49,9 +49,6 @@ do
 	echo -e "\n\n\n============================================================\n\n"
 done
 
-echo_color "$BOLDRED" "ABORTING build because this was just a test"
-exit 1
-
 echo_color "$BOLDGREEN" "Compilation complete, creating and signing manifest(s)"
 
 run_and_print make GLUON_BRANCH=experimental GLUON_PRIORITY=1 GLUON_RELEASE=$RELEASE_VERSION manifest
