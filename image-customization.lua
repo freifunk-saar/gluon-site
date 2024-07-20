@@ -1,0 +1,25 @@
+features({
+    'autoupdater',
+    'mesh-batman-adv-15',
+    'mesh-vpn-tunneldigger',
+    'ebtables-filter-multicast',
+    'ebtables-filter-ra-dhcp',
+    'ebtables-source-filter',
+    'ebtables-limit-arp',
+    'radv-filterd',
+    'respondd',
+    'web-wizard',
+    'web-advanced',
+    'web-private-wifi',
+    'config-mode-geo-location-osm',
+    'status-page',
+})
+
+packages({
+    'respondd-module-airtime',
+    'iwinfo',
+    'gluon-ffsaar-watchdog',
+    'gluon-config-mode-domain-select',
+    'ffda-domain-director',
+    'gluon-web-ffda-domain-director',
+})
